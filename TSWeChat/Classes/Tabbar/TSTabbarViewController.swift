@@ -1,9 +1,9 @@
 //
 //  TSTabbarViewController.swift
-//  TSWeChat
+//  Talk Spy Main Page
 //
-//  Created by Hilen on 11/5/15.
-//  Copyright © 2015 Hilen. All rights reserved.
+//  By MT on 16 Dec 19.
+//  Version 1.0.0
 //
 
 import UIKit
@@ -21,7 +21,7 @@ class TSTabbarViewController: UITabBarController {
         let titleArray = ["微信", "通讯录", "故事", "我"]
         
         let normalImagesArray = [
-            TSAsset.Tabbar_mainframe.image,
+            TSAsset.Tabbar_mainframe.image,             //mainframe is the chat (message)
             TSAsset.Tabbar_contacts.image,
             TSAsset.Tabbar_discover.image,
             TSAsset.Tabbar_me.image,
@@ -35,23 +35,23 @@ class TSTabbarViewController: UITabBarController {
         ]
         
         let viewControllerArray = [
-            TSMessageViewController.ts_initFromNib(),  //消息
-            TSContactsViewController.ts_initFromNib(), //联系人
-            TSDiscoverViewController.ts_initFromNib(), //故事
-            TSMeViewController.ts_initFromNib()   //我
+            TSMessageViewController.ts_initFromNib(),   //微信
+            TSContactsViewController.ts_initFromNib(),  //通讯录
+            TSDiscoverViewController.ts_initFromNib(),  //故事
+            TSMeViewController.ts_initFromNib()         //我
         ]
         
         let navigationVCArray = NSMutableArray()
         for (index, controller) in viewControllerArray.enumerated() {
-            controller.tabBarItem!.title = titleArray.get(index: index)
-            controller.tabBarItem!.image = normalImagesArray.get(index: index).withRenderingMode(.alwaysOriginal)
-            controller.tabBarItem!.selectedImage = selectedImagesArray.get(index: index).withRenderingMode(.alwaysOriginal)
+            controller.tabBarItem!.title = titleArray.get(index: index)                                                         //set title
+            controller.tabBarItem!.image = normalImagesArray.get(index: index).withRenderingMode(.alwaysOriginal)               //set image
+            controller.tabBarItem!.selectedImage = selectedImagesArray.get(index: index).withRenderingMode(.alwaysOriginal)     //set image
             controller.tabBarItem!.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.lightGray], for: UIControlState())
             controller.tabBarItem!.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.tabbarSelectedTextColor], for: .selected)
-            let navigationController = UINavigationController(rootViewController: controller)
+            let navigationController = UINavigationController(rootViewController: controller)               //create nv container for each crl
             navigationVCArray.add(navigationController)
         }
-        self.viewControllers = navigationVCArray.mutableCopy() as! [UINavigationController]
+        self.viewControllers = navigationVCArray.mutableCopy() as! [UINavigationController]                 //View ++> Nav --> viewControllers => Linked
     }
 
     override func didReceiveMemoryWarning() {
