@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		69BF07AD42EB3D03A06DA8A5 /* Pods_TSWeChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEDE4F6B7BF2C153C58B4744 /* Pods_TSWeChat.framework */; };
+		6E24FE621E0A2C9900869AF4 /* TSStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E24FE601E0A2C9900869AF4 /* TSStoryViewController.swift */; };
+		6E24FE631E0A2C9900869AF4 /* TSStoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E24FE611E0A2C9900869AF4 /* TSStoryViewController.xib */; };
 		AE040A9F1C990B4A003A764D /* TSLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE040A9E1C990B4A003A764D /* TSLocationManager.swift */; };
 		AE3CBC551C854B90008BA4AC /* TSChatDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3CBC541C854B90008BA4AC /* TSChatDataManager.swift */; };
 		AE3CBC5A1C858C3F008BA4AC /* TSChatViewController+TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3CBC591C858C3F008BA4AC /* TSChatViewController+TestData.swift */; };
@@ -150,6 +152,8 @@
 
 /* Begin PBXFileReference section */
 		3A0A115624D01BDFF95A5161 /* Pods-TSWeChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSWeChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-TSWeChat/Pods-TSWeChat.release.xcconfig"; sourceTree = "<group>"; };
+		6E24FE601E0A2C9900869AF4 /* TSStoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSStoryViewController.swift; sourceTree = "<group>"; };
+		6E24FE611E0A2C9900869AF4 /* TSStoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSStoryViewController.xib; sourceTree = "<group>"; };
 		AE040A9E1C990B4A003A764D /* TSLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSLocationManager.swift; sourceTree = "<group>"; };
 		AE3CBC541C854B90008BA4AC /* TSChatDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSChatDataManager.swift; sourceTree = "<group>"; };
 		AE3CBC591C858C3F008BA4AC /* TSChatViewController+TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TSChatViewController+TestData.swift"; sourceTree = "<group>"; };
@@ -307,6 +311,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E24FE571E0998AE00869AF4 /* Story */ = {
+			isa = PBXGroup;
+			children = (
+				6E24FE601E0A2C9900869AF4 /* TSStoryViewController.swift */,
+				6E24FE611E0A2C9900869AF4 /* TSStoryViewController.xib */,
+			);
+			name = Story;
+			sourceTree = "<group>";
+		};
 		74663A5ED5DFB8BB9D29510D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -442,6 +455,7 @@
 		AE92B6041C3FF7C900968A3A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6E24FE571E0998AE00869AF4 /* Story */,
 				AE1E4C431CE32167004BD467 /* Moments */,
 				AEE69B671C81B58600C69224 /* Chat */,
 				AE87426E1C7AE23E003A435C /* CoreModule */,
@@ -807,6 +821,7 @@
 				AE69C7671C8E6A2500D929CD /* close.wav in Resources */,
 				AE92B8C41C3FFC9000968A3A /* TSDiscoverViewController.xib in Resources */,
 				AEE69BA71C81B58600C69224 /* TSChatTextCell.xib in Resources */,
+				6E24FE631E0A2C9900869AF4 /* TSStoryViewController.xib in Resources */,
 				AE69C76C1C8E6D4B00D929CD /* msg.caf in Resources */,
 				AE69C7691C8E6AD200D929CD /* country_code.txt in Resources */,
 				AEE69BA91C81B58600C69224 /* TSChatTimeCell.xib in Resources */,
@@ -918,6 +933,7 @@
 				AEE69BCB1C81B58600C69224 /* TSChatEmotionInputView.swift in Sources */,
 				AE87425F1C7AE0F1003A435C /* TSUIColor+WeChat.swift in Sources */,
 				AEE69BA61C81B58600C69224 /* TSChatTextCell.swift in Sources */,
+				6E24FE621E0A2C9900869AF4 /* TSStoryViewController.swift in Sources */,
 				AE92B8AE1C3FFC5D00968A3A /* TSTabbarViewController.swift in Sources */,
 				AEE69BBA1C81B58600C69224 /* UIScrollView+ChatAdditions.swift in Sources */,
 				AE8742791C7AE48A003A435C /* NSDate+Extension.swift in Sources */,
