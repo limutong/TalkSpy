@@ -13,12 +13,12 @@ class TSStoryViewController: UIViewController {
     //ts-003 For the function version , story
     fileprivate let itemDataSouce: [[(name: String, iconImage: UIImage)]] = [
         [
-            ("xxx", TSAsset.Ff_IconShowAlbum.image),
-            ("yyy", TSAsset.MoreGame.image),
-            ("zzz", TSAsset.Ff_IconQRCode.image),
+            ("4.遗失", TSAsset.Ff_IconShowAlbum.image),
+            ("5.新世界", TSAsset.Ff_IconShowAlbum.image),
+            ("6.行尸走肉", TSAsset.Ff_IconShowAlbum.image),
             ],
         [
-            ("ttt", TSAsset.Ff_IconBottle.image),
+            ("7.困", TSAsset.Ff_IconBottle.image),
             ],
         ]
     //ts-003 For the function version , story end
@@ -28,7 +28,7 @@ class TSStoryViewController: UIViewController {
         //ts-001 story
         self.title = "Story Details"
         self.view.backgroundColor = UIColor.viewBackgroundColor
-        self.listTableView.ts_registerCellNib(TSImageTextTableViewCell.self)
+        self.listTableView.ts_registerCellNib(TSStoryTableViewCell.self)
         self.listTableView.estimatedRowHeight = 44
         self.listTableView.tableFooterView = UIView()
         
@@ -111,10 +111,10 @@ extension TSStoryViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print(" -------- 4.4 ------ ")
-        let cell :TSImageTextTableViewCell = tableView.ts_dequeueReusableCell(TSImageTextTableViewCell.self)
+        let cell :TSStoryTableViewCell = tableView.ts_dequeueReusableCell(TSStoryTableViewCell.self)
         let item = self.itemDataSouce[indexPath.section][indexPath.row]
-        cell.iconImageView.image = item.iconImage
-        cell.titleLabel.text = item.name
+        cell.testImage.image = item.iconImage
+        cell.testLabel.text = item.name
         return cell
     }
 }
