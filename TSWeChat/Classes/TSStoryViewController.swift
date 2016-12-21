@@ -21,6 +21,8 @@ class TSStoryViewController: UIViewController {
             ("7.困", TSAsset.Ff_IconBottle.image),
             ],
         ]
+    
+    var selectedCellIndexPath:IndexPath!
     //ts-003 For the function version , story end
     override func viewDidLoad() {
         print(" -------- 1 ------ ")
@@ -73,22 +75,36 @@ extension TSStoryViewController: UITableViewDelegate {
         return 0.00001
     }
     
+
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(" -------- 3.2 ------ ")
         tableView.deselectRow(at: indexPath, animated: true)
         print(" chicked indexPath : ",indexPath)
         
-        //init from a inb with same name of the class, return UIViewController
-        let controllerX = TSContactsViewController.ts_initFromNib()  //通讯录
-        controllerX.tabBarItem!.title = "Story Details"  //set title
-        controllerX.tabBarItem!.image = TSAsset.Tabbar_mainframe.image //set image
-        controllerX.tabBarItem!.selectedImage = TSAsset.Tabbar_mainframeHL.image.withRenderingMode(.alwaysOriginal)     //set image
-        controllerX.tabBarItem!.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.lightGray], for: UIControlState())
-        controllerX.tabBarItem!.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.tabbarSelectedTextColor], for: .selected)
+        //deselect
+        self.listTableView!.deselectRow(at: indexPath, animated: false)
+        //store global
+        selectedCellIndexPath = indexPath
+        //forces the table view to call heightForRowAtIndexPath
+        self.listTableView!.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         
-        //fire
-        navigationController?.pushViewController(controllerX, animated: true)
+//        
+//        //init from a inb with same name of the class, return UIViewController
+//        let controllerX = TSContactsViewController.ts_initFromNib()  //通讯录
+//        controllerX.tabBarItem!.title = "Story Details"  //set title
+//        controllerX.tabBarItem!.image = TSAsset.Tabbar_mainframe.image //set image
+//        controllerX.tabBarItem!.selectedImage = TSAsset.Tabbar_mainframeHL.image.withRenderingMode(.alwaysOriginal)     //set image
+//        controllerX.tabBarItem!.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.lightGray], for: UIControlState())
+//        controllerX.tabBarItem!.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.tabbarSelectedTextColor], for: .selected)
+//        
+//        //fire
+//        navigationController?.pushViewController(controllerX, animated: true)
+//
+        
     }
+    
+
 }
 
 // MARK: @protocol - UITableViewDataSource
@@ -104,10 +120,18 @@ extension TSStoryViewController: UITableViewDataSource {
         return rows.count
     }
     
+    //点击单元格会引起cell高度的变化，所以要重新设置
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        print(" -------- 4.3 ------ ")
-        return self.listTableView.estimatedRowHeight
+        if(selectedCellIndexPath != nil && selectedCellIndexPath == indexPath){
+            return 120
+        }
+        return 40
     }
+    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        print(" -------- 4.3 ------ ")
+//        return self.listTableView.estimatedRowHeight
+//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print(" -------- 4.4 ------ ")
