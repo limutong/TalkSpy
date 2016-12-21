@@ -12,10 +12,14 @@ class TSStoryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var testLabel: UILabel!
     @IBOutlet weak var testImage: UIImageView!
+    @IBOutlet weak var cellTextView: UITextView!
+    @IBOutlet weak var cellView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.accessoryType = .disclosureIndicator
+        print ("in cell awakeFromNib")
+//        self.view
         // Initialization code
     }
 

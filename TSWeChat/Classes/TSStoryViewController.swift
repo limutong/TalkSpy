@@ -16,11 +16,9 @@ class TSStoryViewController: UIViewController {
             ("4.遗失", TSAsset.Ff_IconShowAlbum.image),
             ("5.新世界", TSAsset.Ff_IconShowAlbum.image),
             ("6.行尸走肉", TSAsset.Ff_IconShowAlbum.image),
-            ],
-        [
             ("7.困", TSAsset.Ff_IconBottle.image),
-            ],
-        ]
+        ],
+    ]
     
     var selectedCellIndexPath:IndexPath!
     //ts-003 For the function version , story end
