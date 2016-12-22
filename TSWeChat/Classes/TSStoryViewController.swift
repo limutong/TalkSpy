@@ -14,10 +14,10 @@ class TSStoryViewController: UIViewController {
     //ts-003 For the function version , story
     fileprivate let itemDataSouce: [[(name: String, iconImage: UIImage)]] = [
         [
-            ("4.遗失", TSAsset.Ff_IconShowAlbum.image),
-            ("5.新世界", TSAsset.Ff_IconShowAlbum.image),
-            ("6.行尸走肉", TSAsset.Ff_IconShowAlbum.image),
-            ("7.困", TSAsset.Ff_IconBottle.image),
+            ("4.遗失", TSAsset.TS_IconThink2.image),
+            ("5.新世界", TSAsset.TS_IconThink2.image),
+            ("6.行尸走肉", TSAsset.Ff_IconQRCode.image),
+            ("7.困", TSAsset.Ff_IconQRCode.image),
         ],
     ]
     var selectedCellIndexPath:IndexPath!
@@ -46,17 +46,6 @@ class TSStoryViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
 
 // MARK: @protocol - UITableViewDelegate
@@ -76,7 +65,7 @@ extension TSStoryViewController: UITableViewDelegate {
     }
     
 
-    
+    //select row !!!  working on
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(" -------- 3.2 ------ story detail didSelectRowAt")
         tableView.deselectRow(at: indexPath, animated: true)
@@ -105,17 +94,27 @@ extension TSStoryViewController: UITableViewDataSource {
         return rows.count
     }
     
-    //点击单元格会引起cell高度的变化，所以要重新设置
+    //from forces the table view didSelectRowAt !!! working on
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         print(" -------- 4.3 ------ story detail heightForRowAt")
+        
+        var out = 40
         if(selectedCellIndexPath != nil && selectedCellIndexPath == indexPath){
-            return 120
+            out = 120
+            let cell:TSStoryTableViewCell = tableView.cellForRow(at: indexPath) as! TSStoryTableViewCell
+            
+            print(" @@@@@@@@@@@@@@@ ")
+            print(cell.cellTextView.height)
+            print(" @@@@@@@@@@@@@@@ ")
+
         }
-        return 40
+        print(" cal height indexPath : ",indexPath, " ",out)
+        return CGFloat(out)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print(" -------- 4.4 ------ story detail cellForRowAt")
+
         let cell :TSStoryTableViewCell = tableView.ts_dequeueReusableCell(TSStoryTableViewCell.self)
         let item = self.itemDataSouce[indexPath.section][indexPath.row]
         cell.testImage.image = item.iconImage

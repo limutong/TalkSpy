@@ -130,6 +130,8 @@ extension UIImage {
         case Dice_Action_2 = "dice_Action_2"
         case Dice_Action_3 = "dice_Action_3"
         case Ff_IconBottle = "ff_IconBottle"
+        case TS_IconThink = "ts_think" //TS-003
+        case TS_IconThink2 = "ts_think2" //TS-003
         case Ff_IconGroup = "ff_IconGroup"
         case Ff_IconLocationService = "ff_IconLocationService"
         case Ff_IconQRCode = "ff_IconQRCode"
