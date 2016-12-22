@@ -2,7 +2,7 @@
 //  TSDiscoverViewController.swift
 //  TSWeChat
 //
-//  Created by  Hilen on 1/8/16.
+//  Created  by Hilen on 1/8/16.
 //  Modified by MT
 //
 
@@ -23,8 +23,10 @@ class TSDiscoverViewController: UIViewController {
     ]
     //ts-003 For the function version , story end
     override func viewDidLoad() {
-        print(" -------- 1 ------ ")
+        
         super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
         //ts-001 story
         self.title = "故事"
         self.view.backgroundColor = UIColor.viewBackgroundColor
@@ -32,7 +34,6 @@ class TSDiscoverViewController: UIViewController {
         self.listTableView.estimatedRowHeight = 44
         self.listTableView.tableFooterView = UIView()
 
-        // Do any additional setup after loading the view.
     }
 
     deinit {
@@ -60,7 +61,7 @@ class TSDiscoverViewController: UIViewController {
 // MARK: @protocol - UITableViewDelegate
 extension TSDiscoverViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-                print(" -------- 3 ------ ")
+                print(" -------- 3 ------ story main heightForHeaderInSection")
         if section == 0 {
             return 15
         } else {
@@ -69,23 +70,24 @@ extension TSDiscoverViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        print(" -------- 3.1 ------ ")
+        print(" -------- 3.1 ------ story main heightForFooterInSection")
         return 0.00001
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(" -------- 3.2 ------ ")
+        
+        print(" -------- 3.2 ------ story main didSelectRowAt")
         tableView.deselectRow(at: indexPath, animated: true)
-        print(" chicked indexPath : ",indexPath)
+        
+        print(" story main chicked indexPath : ",indexPath)
 
+        //init story new page
+        let controllerY = TSStoryViewController.ts_initFromNib()
         
-        let controllerY = TSStoryViewController.ts_initFromNib()  //Story new page
-        controllerY.tabBarItem!.title = "Story Details"  //set title
-        controllerY.tabBarItem!.image = TSAsset.Tabbar_mainframe.image //set image
-        controllerY.tabBarItem!.selectedImage = TSAsset.Tabbar_mainframeHL.image.withRenderingMode(.alwaysOriginal)     //set image
-        controllerY.tabBarItem!.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.lightGray], for: UIControlState())
-        controllerY.tabBarItem!.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.tabbarSelectedTextColor], for: .selected)
-        
+        print (itemDataSouce[indexPath.section][indexPath.row].name)
+        //set title
+        controllerY.title = itemDataSouce[indexPath.section][indexPath.row].name
+
         //fire
         navigationController?.pushViewController(controllerY, animated: true)
     }
@@ -94,23 +96,23 @@ extension TSDiscoverViewController: UITableViewDelegate {
 // MARK: @protocol - UITableViewDataSource
 extension TSDiscoverViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {   //define rows
-        print(" -------- 4.1 ------ ")
+        print(" -------- 4.1 ------ story main numberOfSections")
         return self.itemDataSouce.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(" -------- 4.2 ------ ")
+        print(" -------- 4.2 ------ story main numberOfRowsInSection")
         let rows = self.itemDataSouce[section]
         return rows.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        print(" -------- 4.3 ------ ")
+        print(" -------- 4.3 ------ story main heightForRowAt ",self.listTableView.estimatedRowHeight)
         return self.listTableView.estimatedRowHeight
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(" -------- 4.4 ------ ")
+        print(" -------- 4.4 ------ story main cellForRowAt")
         let cell :TSImageTextTableViewCell = tableView.ts_dequeueReusableCell(TSImageTextTableViewCell.self)
         let item = self.itemDataSouce[indexPath.section][indexPath.row]
         cell.iconImageView.image = item.iconImage
