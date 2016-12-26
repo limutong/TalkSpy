@@ -13,12 +13,10 @@ class TSDiscoverViewController: UIViewController {
     //ts-003 For the function version , story
     fileprivate let itemDataSouce: [[(name: String, iconImage: UIImage)]] = [
         [
-            ("回忆篇", TSAsset.Ff_IconShowAlbum.image),
-            ("现在篇", TSAsset.MoreGame.image),
-            ("N的调查报告", TSAsset.Ff_IconQRCode.image),
-        ],
-        [
-            ("每个人的故事", TSAsset.Ff_IconBottle.image),
+            ("回忆篇", TSAsset.ff_IconDiscover_Memory.image),
+            ("现在篇", TSAsset.ff_IconDiscover_Now.image),
+            ("N的调查报告", TSAsset.ff_IconDiscover_N_Survey.image),
+            ("每个人的故事", TSAsset.ff_IconDiscover_Everyone_Story.image),
         ],
     ]
     //ts-003 For the function version , story end
@@ -31,7 +29,8 @@ class TSDiscoverViewController: UIViewController {
         self.title = "故事"
         self.view.backgroundColor = UIColor.viewBackgroundColor
         self.listTableView.ts_registerCellNib(TSImageTextTableViewCell.self)
-        self.listTableView.estimatedRowHeight = 44
+        self.listTableView.rowHeight = UITableViewAutomaticDimension
+        self.listTableView.estimatedRowHeight = 140
         self.listTableView.tableFooterView = UIView()
 
     }

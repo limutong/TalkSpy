@@ -137,6 +137,14 @@ extension UIImage {
         case Ff_IconQRCode = "ff_IconQRCode"
         case Ff_IconShake = "ff_IconShake"
         case Ff_IconShowAlbum = "ff_IconShowAlbum"
+        
+        case ff_IconDiscover_Everyone_Story = "ff_IconDiscover_Everyone_Story"
+        case ff_IconDiscover_Memory = "ff_IconDiscover_Memory"
+        case ff_IconDiscover_N_Survey = "ff_IconDiscover_N_Survey"
+        case ff_IconDiscover_Now = "ff_IconDiscover_Now"
+        
+        
+        
         case MyQRCodeAction = "MyQRCodeAction"
         case MoreExpressionShops = "MoreExpressionShops"
         case MoreGame = "MoreGame"
