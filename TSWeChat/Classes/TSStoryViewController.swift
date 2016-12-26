@@ -175,7 +175,10 @@ extension TSStoryViewController: UITableViewDataSource {
         cell.thinkBtn.setImage(item.iconImage, for: .normal)
         
 //        cell.thinkBtn.addTarget(self, action: Selector(("btnTouched:")), for: .touchUpInside)
-
+        
+        //remove arrow right side
+        cell.accessoryType = .none
+        
         return cell
     }
 }
