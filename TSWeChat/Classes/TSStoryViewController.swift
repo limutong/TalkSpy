@@ -46,7 +46,7 @@ class TSStoryViewController: UIViewController {
         ],
     ]
     var selectedCellIndexPath:IndexPath!
-    
+    var energy:Int!
     //ts-003 For the function version , story end
     
     override func viewDidLoad() {
@@ -60,6 +60,25 @@ class TSStoryViewController: UIViewController {
         self.listTableView.tableFooterView = UIView()
         
         // Do any additional setup after loading the view.
+        //var navBar = self.navigationController?.navigationBar
+        
+        let btn1 = UIButton(type: .custom)
+        btn1.setImage(TSAsset.MoreExpressionShops.image, for: .normal)
+        btn1.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        let item1 = UIBarButtonItem(customView: btn1)
+        
+        let btn2 = UIButton(type: .custom)
+        btn2.setImage(TSAsset.MoreExpressionShops.image, for: .normal)
+        btn2.frame = CGRect(x: 30, y: 0, width: 30, height: 30)
+        let item2 = UIBarButtonItem(customView: btn2)
+        
+        let btn3 = UIButton(type: .custom)
+        btn3.setImage(TSAsset.MoreExpressionShops.image, for: .normal)
+        btn3.frame = CGRect(x: 60, y: 0, width: 30, height: 30)
+        let item3 = UIBarButtonItem(customView: btn3)
+        self.navigationItem.setRightBarButtonItems([item1,item2,item3], animated: true)
+        
+        self.energy = 3
     }
     
     deinit {
@@ -69,6 +88,65 @@ class TSStoryViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func btnTouched(){
+        print("ttttttttttttttttttt")
+        print("ttttttttttttttttttt")
+        print("ttttttttttttttttttt")
+        switch self.energy {
+        case 3:
+            print("3")
+            let btn1 = UIButton(type: .custom)
+            btn1.setImage(TSAsset.MoreExpressionShops.image, for: .normal)
+            btn1.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+            let item1 = UIBarButtonItem(customView: btn1)
+            
+            let btn2 = UIButton(type: .custom)
+            btn2.setImage(TSAsset.MoreExpressionShops.image, for: .normal)
+            btn2.frame = CGRect(x: 30, y: 0, width: 30, height: 30)
+            let item2 = UIBarButtonItem(customView: btn2)
+            
+            self.navigationItem.setRightBarButtonItems([item1,item2], animated: true)
+            
+            self.energy = 2
+        case 2:
+            print("2")
+            let btn1 = UIButton(type: .custom)
+            btn1.setImage(TSAsset.MoreExpressionShops.image, for: .normal)
+            btn1.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+            let item1 = UIBarButtonItem(customView: btn1)
+            
+            self.navigationItem.setRightBarButtonItems([item1], animated: true)
+            
+            self.energy = 1
+        case 1:
+            print("1")
+            self.navigationItem.setRightBarButtonItems([], animated: true)
+            
+            self.energy = 0
+        case 0:
+            print("0")
+            let btn1 = UIButton(type: .custom)
+            btn1.setImage(TSAsset.MoreExpressionShops.image, for: .normal)
+            btn1.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+            let item1 = UIBarButtonItem(customView: btn1)
+            
+            let btn2 = UIButton(type: .custom)
+            btn2.setImage(TSAsset.MoreExpressionShops.image, for: .normal)
+            btn2.frame = CGRect(x: 30, y: 0, width: 30, height: 30)
+            let item2 = UIBarButtonItem(customView: btn2)
+            
+            let btn3 = UIButton(type: .custom)
+            btn3.setImage(TSAsset.MoreExpressionShops.image, for: .normal)
+            btn3.frame = CGRect(x: 60, y: 0, width: 30, height: 30)
+            let item3 = UIBarButtonItem(customView: btn3)
+            self.navigationItem.setRightBarButtonItems([item1,item2,item3], animated: true)
+            
+            self.energy = 3
+        default:
+            print("default")
+        }
     }
     
 }
@@ -175,6 +253,7 @@ extension TSStoryViewController: UITableViewDataSource {
         cell.thinkBtn.setImage(item.iconImage, for: .normal)
         
 //        cell.thinkBtn.addTarget(self, action: Selector(("btnTouched:")), for: .touchUpInside)
+        cell.thinkBtn.addTarget(self, action: #selector(TSStoryViewController.btnTouched), for: .touchDown)
         
         //remove arrow right side
         cell.accessoryType = .none
