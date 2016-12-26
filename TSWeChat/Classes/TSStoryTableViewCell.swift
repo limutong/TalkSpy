@@ -16,11 +16,29 @@ class TSStoryTableViewCell: UITableViewCell {
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var thinkBtn: UIButton!
     
+    @IBAction func think(_ sender: UIButton) {
+
+        //highlight self.cellTextView
+        let searchString = "sit" as String
+        let baseString = self.cellTextView.text
+
+        let range = (baseString! as NSString).range(of: searchString)
+
+        let attributed = NSMutableAttributedString(string: baseString!)
+        
+        attributed.addAttribute(NSBackgroundColorAttributeName, value: UIColor.yellow, range: range)
+        
+        self.cellTextView.attributedText = attributed
+ 
+    }
+
+
+    
     //initial for each cell
     override func awakeFromNib() {
         super.awakeFromNib()
         self.accessoryType = .disclosureIndicator
-        
+        self.thinkBtn.isHidden = true
         // Initialization code
         print ("CELL awakeFromNib")
 

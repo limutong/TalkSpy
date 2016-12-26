@@ -102,35 +102,34 @@ extension TSStoryViewController: UITableViewDelegate {
         if(selectedCellIndexPath != nil && selectedCellIndexPath == indexPath){
             print("$$$ close opened story ",indexPath)
             selectedCellIndexPath = nil
-        
+            
+            let cellT:TSStoryTableViewCell = self.listTableView!.cellForRow(at: indexPath) as! TSStoryTableViewCell
+            cellT.thinkBtn.isHidden = true
+            
             self.listTableView!.reloadData()
             return
         }else{
             print("$$$ opening story ",indexPath)
             //[BUG TO FIX]: scroll to row didn't work when the bottem don't have enough rows
+            
+            //store global
+            selectedCellIndexPath = indexPath
+            //forces the table view to call heightForRowAtIndexPath
+            self.listTableView!.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+            
             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
                 let numberOfRows = indexPath.row
                 if numberOfRows > 0 {
                     self.listTableView!.scrollToRow(at: indexPath, at: .top, animated: true)
                 }
             }
+            
+            let cellT:TSStoryTableViewCell = self.listTableView!.cellForRow(at: indexPath) as! TSStoryTableViewCell
+            cellT.thinkBtn.isHidden = false
 
-            //hiden rest
-//            let len = self.listTableView!.numberOfRows(inSection: 0)
-//            for r in 0...len-1 {
-//                if( r != indexPath.row){
-//                    var cell:UITableViewCell = self.listTableView!.cellForRow(at: IndexPath(row: r, section: 0))!
-//                    cell.isHidden = true
-//                }
-//                // do something with the cell here.
-//            }
+            return
         }
-        
-        //store global
-        selectedCellIndexPath = indexPath
-        //forces the table view to call heightForRowAtIndexPath
-        self.listTableView!.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
-        
+
     }
 }
 
@@ -175,7 +174,7 @@ extension TSStoryViewController: UITableViewDataSource {
         cell.testLabel.text = item.name
         cell.thinkBtn.setImage(item.iconImage, for: .normal)
         
-        cell.thinkBtn.addTarget(self, action: Selector(("btnTouched:")), for: .touchUpInside)
+//        cell.thinkBtn.addTarget(self, action: Selector(("btnTouched:")), for: .touchUpInside)
 
         return cell
     }
