@@ -14,10 +14,35 @@ class TSStoryViewController: UIViewController {
     //ts-003 For the function version , story
     fileprivate let itemDataSouce: [[(name: String, iconImage: UIImage)]] = [
         [
-            ("4.遗失", TSAsset.TS_IconThink2.image),
-            ("5.新世界", TSAsset.TS_IconThink2.image),
-            ("6.行尸走肉", TSAsset.Ff_IconQRCode.image),
-            ("7.困", TSAsset.Ff_IconQRCode.image),
+            ("1.遗失", TSAsset.Ff_IconQRCode.image),
+            ("2.新世界", TSAsset.Ff_IconQRCode.image),
+            ("3.行尸走肉", TSAsset.Ff_IconQRCode.image),
+            ("4.困", TSAsset.TS_IconThink2.image),
+            ("5.遗失", TSAsset.Ff_IconQRCode.image),
+            ("6.新世界", TSAsset.Ff_IconQRCode.image),
+            ("7.行尸走肉", TSAsset.Ff_IconQRCode.image),
+            ("8.困", TSAsset.TS_IconThink2.image),
+            ("9.遗失", TSAsset.Ff_IconQRCode.image),
+            ("10.新世界", TSAsset.Ff_IconQRCode.image),
+            ("11.行尸走肉", TSAsset.Ff_IconQRCode.image),
+            ("12.困", TSAsset.TS_IconThink2.image),
+            ("13.遗失", TSAsset.Ff_IconQRCode.image),
+            ("14.新世界", TSAsset.Ff_IconQRCode.image),
+            ("15.行尸走肉", TSAsset.Ff_IconQRCode.image),
+            ("16.困", TSAsset.TS_IconThink2.image),
+            ("17.遗失", TSAsset.Ff_IconQRCode.image),
+            ("18.新世界", TSAsset.Ff_IconQRCode.image),
+            ("19.行尸走肉", TSAsset.Ff_IconQRCode.image),
+            ("20.困", TSAsset.TS_IconThink2.image),
+            ("21.遗失", TSAsset.Ff_IconQRCode.image),
+            ("22.新世界", TSAsset.Ff_IconQRCode.image),
+            ("23.行尸走肉", TSAsset.Ff_IconQRCode.image),
+            ("24.困", TSAsset.TS_IconThink2.image),
+            ("25.遗失", TSAsset.Ff_IconQRCode.image),
+            ("26.新世界", TSAsset.Ff_IconQRCode.image),
+            ("27.行尸走肉", TSAsset.Ff_IconQRCode.image),
+            ("28.困", TSAsset.TS_IconThink2.image),
+            
         ],
     ]
     var selectedCellIndexPath:IndexPath!
@@ -73,6 +98,34 @@ extension TSStoryViewController: UITableViewDelegate {
         
         //deselect
         self.listTableView!.deselectRow(at: indexPath, animated: false)
+        
+        if(selectedCellIndexPath != nil && selectedCellIndexPath == indexPath){
+            print("$$$ close opened story ",indexPath)
+            selectedCellIndexPath = nil
+        
+            self.listTableView!.reloadData()
+            return
+        }else{
+            print("$$$ opening story ",indexPath)
+            //[BUG TO FIX]: scroll to row didn't work when the bottem don't have enough rows
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
+                let numberOfRows = indexPath.row
+                if numberOfRows > 0 {
+                    self.listTableView!.scrollToRow(at: indexPath, at: .top, animated: true)
+                }
+            }
+
+            //hiden rest
+//            let len = self.listTableView!.numberOfRows(inSection: 0)
+//            for r in 0...len-1 {
+//                if( r != indexPath.row){
+//                    var cell:UITableViewCell = self.listTableView!.cellForRow(at: IndexPath(row: r, section: 0))!
+//                    cell.isHidden = true
+//                }
+//                // do something with the cell here.
+//            }
+        }
+        
         //store global
         selectedCellIndexPath = indexPath
         //forces the table view to call heightForRowAtIndexPath
@@ -98,9 +151,10 @@ extension TSStoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         print(" -------- 4.3 ------ story detail heightForRowAt")
         
-        var out = 40
+        //[BUG TO FIX]: hardcode value need to be replaced
+        var out = 50
         if(selectedCellIndexPath != nil && selectedCellIndexPath == indexPath){
-            out = 120
+            out = 480
             let cell:TSStoryTableViewCell = tableView.cellForRow(at: indexPath) as! TSStoryTableViewCell
             
             print(" @@@@@@@@@@@@@@@ ")
@@ -117,8 +171,12 @@ extension TSStoryViewController: UITableViewDataSource {
 
         let cell :TSStoryTableViewCell = tableView.ts_dequeueReusableCell(TSStoryTableViewCell.self)
         let item = self.itemDataSouce[indexPath.section][indexPath.row]
-        cell.testImage.image = item.iconImage
+        //cell.testImage.image = item.iconImage
         cell.testLabel.text = item.name
+        cell.thinkBtn.setImage(item.iconImage, for: .normal)
+        
+        cell.thinkBtn.addTarget(self, action: Selector(("btnTouched:")), for: .touchUpInside)
+
         return cell
     }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,50 +20,50 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVM-7t-kna" userLabel="Test Label">
-                        <rect key="frame" x="8" y="8" width="199" height="35"/>
+                        <rect key="frame" x="8" y="8" width="224" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="35" id="Rwe-st-ywS"/>
+                            <constraint firstAttribute="height" constant="40" id="n56-0X-RMK"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k70-OH-eFw">
-                        <rect key="frame" x="8" y="79" width="282" height="161"/>
+                        <rect key="frame" x="8" y="60" width="272" height="183"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cb2-G8-RpX" userLabel="Test Image View">
-                        <rect key="frame" x="252" y="8" width="38" height="35"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMb-Bd-Qhr">
+                        <rect key="frame" x="240" y="8" width="40" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="38" id="OAO-rV-R1q"/>
-                            <constraint firstAttribute="height" constant="35" id="rz2-yb-A9g"/>
-                            <constraint firstAttribute="width" constant="38" id="wMn-dn-4hN"/>
+                            <constraint firstAttribute="width" constant="40" id="Xj2-LT-BhW"/>
+                            <constraint firstAttribute="height" constant="40" id="cQK-5f-pf0"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="hjB-Ar-Exx"/>
                         </constraints>
-                    </imageView>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="cb2-G8-RpX" firstAttribute="trailing" secondItem="k70-OH-eFw" secondAttribute="trailing" id="5wI-VW-3Xz"/>
-                    <constraint firstItem="k70-OH-eFw" firstAttribute="top" secondItem="tVM-7t-kna" secondAttribute="bottom" constant="36" id="8QX-Bm-61y"/>
-                    <constraint firstItem="cb2-G8-RpX" firstAttribute="leading" secondItem="tVM-7t-kna" secondAttribute="trailing" constant="45" id="NUZ-oD-Lv8"/>
-                    <constraint firstItem="tVM-7t-kna" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Od4-b6-JpT"/>
-                    <constraint firstItem="tVM-7t-kna" firstAttribute="leading" secondItem="k70-OH-eFw" secondAttribute="leading" id="Ohg-Ab-Fu5"/>
-                    <constraint firstItem="tVM-7t-kna" firstAttribute="top" secondItem="cb2-G8-RpX" secondAttribute="top" id="UGI-NI-bem"/>
-                    <constraint firstItem="tVM-7t-kna" firstAttribute="bottom" secondItem="cb2-G8-RpX" secondAttribute="bottom" id="axI-8d-4ua"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="cb2-G8-RpX" secondAttribute="trailing" constant="17" id="p5I-6Z-7TK"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="k70-OH-eFw" secondAttribute="bottom" constant="2" id="qye-th-rX4"/>
-                    <constraint firstItem="tVM-7t-kna" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="wT3-Xm-O7A"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="k70-OH-eFw" secondAttribute="bottom" constant="-1" id="979-sT-EBP"/>
+                    <constraint firstItem="tVM-7t-kna" firstAttribute="top" secondItem="LMb-Bd-Qhr" secondAttribute="top" id="BCT-xd-95i"/>
+                    <constraint firstItem="LMb-Bd-Qhr" firstAttribute="trailing" secondItem="k70-OH-eFw" secondAttribute="trailing" id="Nns-x0-2Zv"/>
+                    <constraint firstItem="k70-OH-eFw" firstAttribute="top" secondItem="tVM-7t-kna" secondAttribute="bottom" constant="12" id="WN2-nk-OsY"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="LMb-Bd-Qhr" secondAttribute="trailing" constant="27" id="Wsy-cU-Hsw"/>
+                    <constraint firstItem="tVM-7t-kna" firstAttribute="bottom" secondItem="LMb-Bd-Qhr" secondAttribute="bottom" id="XsS-UD-hJb"/>
+                    <constraint firstItem="LMb-Bd-Qhr" firstAttribute="leading" secondItem="tVM-7t-kna" secondAttribute="trailing" constant="8" symbolic="YES" id="c8I-ol-t50"/>
+                    <constraint firstItem="tVM-7t-kna" firstAttribute="leading" secondItem="k70-OH-eFw" secondAttribute="leading" id="fpD-V9-RSi"/>
+                    <constraint firstItem="tVM-7t-kna" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="nFh-Qh-xBv"/>
+                    <constraint firstItem="tVM-7t-kna" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="q9w-bT-kX2"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="cellTextView" destination="k70-OH-eFw" id="uBt-PL-lnd"/>
                 <outlet property="cellView" destination="H2p-sc-9uM" id="a5W-vU-gyo"/>
-                <outlet property="testImage" destination="cb2-G8-RpX" id="QEM-U9-IYv"/>
                 <outlet property="testLabel" destination="tVM-7t-kna" id="16b-ch-zGL"/>
+                <outlet property="thinkBtn" destination="LMb-Bd-Qhr" id="CE1-0b-Z9f"/>
             </connections>
-            <point key="canvasLocation" x="-938.5" y="-75.5"/>
+            <point key="canvasLocation" x="-946.5" y="-40.5"/>
         </tableViewCell>
     </objects>
 </document>

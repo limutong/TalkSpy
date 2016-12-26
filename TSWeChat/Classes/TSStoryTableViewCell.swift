@@ -14,6 +14,7 @@ class TSStoryTableViewCell: UITableViewCell {
     @IBOutlet weak var testImage: UIImageView!
     @IBOutlet weak var cellTextView: UITextView!
     @IBOutlet weak var cellView: UIView!
+    @IBOutlet weak var thinkBtn: UIButton!
     
     //initial for each cell
     override func awakeFromNib() {
