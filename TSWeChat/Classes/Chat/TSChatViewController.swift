@@ -35,6 +35,7 @@ final class TSChatViewController: UIViewController {
     }()
     
     var chatActionBarView: TSChatActionBarView!  //action bar
+    var chatTalkSpyBarView: TSChatTalkSpyBarView! //TS-005
     var actionBarPaddingBottomConstranit: Constraint? //action bar 的 bottom Constraint
     var keyboardHeightConstraint: NSLayoutConstraint?  //键盘高度的 Constraint
     var emotionInputView: TSChatEmotionInputView! //表情键盘
@@ -74,6 +75,9 @@ final class TSChatViewController: UIViewController {
         
         //获取第一屏的数据
         self.firstFetchMessageList()
+        
+        //TS-005
+        self.chatActionBarView.isHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -55,6 +55,19 @@ extension TSChatViewController {
             strongSelf.actionBarPaddingBottomConstranit = make.bottom.equalTo(strongSelf.view.snp.bottom).constraint
             make.height.equalTo(kChatActionBarOriginalHeight)
         }
+        
+        //TS-005
+        self.chatTalkSpyBarView = UIView.ts_viewFromNib(TSChatTalkSpyBarView.self)
+        print("ts_viewFromNib DONE")
+        
+        /*self.chatTalkSpyBarView.snp.makeConstraints { [weak self] (make) -> Void in
+            guard let strongSelf = self else { return }
+            make.left.equalTo(strongSelf.view.snp.left)
+            make.right.equalTo(strongSelf.view.snp.right)
+//            strongSelf.actionBarPaddingBottomConstranit = make.bottom.equalTo(strongSelf.view.snp.bottom).constraint
+            make.height.equalTo(CGFloat(50))
+        }*/
+        print("constraints is DONE")
     }
     
     /**
