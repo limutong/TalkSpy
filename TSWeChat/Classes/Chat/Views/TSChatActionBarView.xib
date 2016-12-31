@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,19 +19,15 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zB-ma-iQN" userLabel="Button-voice" customClass="TSChatButton" customModule="TSWeChat" customModuleProvider="target">
                     <rect key="frame" x="5" y="8" width="35" height="35"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="35" id="Gcj-zD-jRo"/>
-                        <constraint firstAttribute="height" constant="35" id="dDO-Ni-H6z"/>
+                        <constraint firstAttribute="width" constant="35" id="1aQ-Kb-Dir"/>
                     </constraints>
                     <state key="normal" image="tool_voice_1"/>
                     <state key="highlighted" image="tool_voice_2"/>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osw-Mt-kUn" userLabel="Button-add" customClass="TSChatButton" customModule="TSWeChat" customModuleProvider="target">
-                    <rect key="frame" x="280" y="8" width="35" height="35"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="35" id="Ecb-Aw-3QC"/>
-                        <constraint firstAttribute="width" constant="35" id="beG-1u-ROX"/>
-                    </constraints>
-                    <state key="normal" image="tool_share_1"/>
+                <button opaque="NO" contentMode="scaleToFill" highlighted="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osw-Mt-kUn" userLabel="Button-add" customClass="TSChatButton" customModule="TSWeChat" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                    <size key="titleShadowOffset" width="2" height="2"/>
+                    <state key="normal" image="sharemore_pic"/>
                     <state key="highlighted" image="tool_share_2"/>
                 </button>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UFx-BD-K9i">
@@ -42,8 +39,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQt-LW-wuw" userLabel="Button-emotion" customClass="TSChatButton" customModule="TSWeChat" customModuleProvider="target">
                     <rect key="frame" x="244" y="8" width="35" height="35"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="35" id="gsf-QV-VAX"/>
-                        <constraint firstAttribute="height" constant="35" id="nPE-zM-j1B"/>
+                        <constraint firstAttribute="width" constant="35" id="nKn-CC-Hkj"/>
                     </constraints>
                     <state key="normal" image="tool_emotion_1"/>
                     <state key="highlighted" image="tool_emotion_2"/>
@@ -58,32 +54,28 @@
             </subviews>
             <color key="backgroundColor" red="0.93725490196078431" green="0.94117647058823528" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="0zB-ma-iQN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="2gR-l3-Wrb"/>
-                <constraint firstItem="nQt-LW-wuw" firstAttribute="leading" secondItem="VVF-64-Ix3" secondAttribute="trailing" constant="7" id="4hP-aC-5To"/>
-                <constraint firstAttribute="bottom" secondItem="VVF-64-Ix3" secondAttribute="bottom" constant="7" id="50v-rM-EWo"/>
-                <constraint firstItem="VVF-64-Ix3" firstAttribute="leading" secondItem="0zB-ma-iQN" secondAttribute="trailing" constant="7" id="Hoc-ej-nFP"/>
-                <constraint firstItem="0zB-ma-iQN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="IBJ-om-8d8"/>
-                <constraint firstItem="nQt-LW-wuw" firstAttribute="leading" secondItem="UFx-BD-K9i" secondAttribute="trailing" constant="7" id="K8x-cQ-BHq"/>
-                <constraint firstItem="osw-Mt-kUn" firstAttribute="leading" secondItem="nQt-LW-wuw" secondAttribute="trailing" constant="1" id="NNd-LC-5up"/>
-                <constraint firstAttribute="bottom" secondItem="UFx-BD-K9i" secondAttribute="bottom" constant="7" id="Vmf-yi-zOO"/>
-                <constraint firstItem="nQt-LW-wuw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="d1L-vd-Piq"/>
-                <constraint firstItem="VVF-64-Ix3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="7" id="i89-LZ-qmT"/>
-                <constraint firstAttribute="bottom" secondItem="nQt-LW-wuw" secondAttribute="bottom" constant="7" id="kfs-Gh-l2M"/>
-                <constraint firstAttribute="bottom" secondItem="osw-Mt-kUn" secondAttribute="bottom" constant="7" id="o44-pf-YfN"/>
-                <constraint firstAttribute="bottom" secondItem="0zB-ma-iQN" secondAttribute="bottom" constant="7" id="rjk-eI-ano"/>
-                <constraint firstItem="UFx-BD-K9i" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="7" id="ucu-cO-1Qg"/>
-                <constraint firstAttribute="trailing" secondItem="osw-Mt-kUn" secondAttribute="trailing" constant="5" id="wKi-Zw-DbS"/>
-                <constraint firstItem="UFx-BD-K9i" firstAttribute="leading" secondItem="0zB-ma-iQN" secondAttribute="trailing" constant="7" id="wsa-Ef-KbS"/>
-                <constraint firstItem="osw-Mt-kUn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="xr0-fs-PQH"/>
+                <constraint firstItem="osw-Mt-kUn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3MD-fx-zBH"/>
+                <constraint firstItem="nQt-LW-wuw" firstAttribute="leading" secondItem="VVF-64-Ix3" secondAttribute="trailing" constant="7" id="7Rh-xf-4ug"/>
+                <constraint firstItem="osw-Mt-kUn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7XC-3c-GwO"/>
+                <constraint firstItem="VVF-64-Ix3" firstAttribute="leading" secondItem="0zB-ma-iQN" secondAttribute="trailing" constant="7" id="8hd-hs-yy2"/>
+                <constraint firstItem="0zB-ma-iQN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="BBY-US-TCW"/>
+                <constraint firstAttribute="trailing" secondItem="osw-Mt-kUn" secondAttribute="trailing" id="CnC-Vf-7S2"/>
+                <constraint firstItem="VVF-64-Ix3" firstAttribute="leading" secondItem="UFx-BD-K9i" secondAttribute="leading" id="Kmq-Qp-ea1"/>
+                <constraint firstAttribute="bottom" secondItem="osw-Mt-kUn" secondAttribute="bottom" id="NTn-IW-AzS"/>
+                <constraint firstItem="0zB-ma-iQN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="Plg-DJ-bgu"/>
+                <constraint firstItem="VVF-64-Ix3" firstAttribute="bottom" secondItem="UFx-BD-K9i" secondAttribute="bottom" id="T05-XZ-T3R"/>
+                <constraint firstAttribute="trailing" secondItem="osw-Mt-kUn" secondAttribute="trailing" id="Ube-s4-Wkk"/>
+                <constraint firstItem="0zB-ma-iQN" firstAttribute="bottom" secondItem="VVF-64-Ix3" secondAttribute="bottom" id="ZtR-SE-G0z"/>
+                <constraint firstItem="osw-Mt-kUn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="cNT-19-Hdx"/>
+                <constraint firstItem="osw-Mt-kUn" firstAttribute="centerY" secondItem="nQt-LW-wuw" secondAttribute="centerY" id="dhw-Ev-iUP"/>
+                <constraint firstItem="0zB-ma-iQN" firstAttribute="top" secondItem="nQt-LW-wuw" secondAttribute="top" id="hsf-rG-iQm"/>
+                <constraint firstItem="osw-Mt-kUn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="oMR-sI-w9L"/>
+                <constraint firstItem="VVF-64-Ix3" firstAttribute="trailing" secondItem="UFx-BD-K9i" secondAttribute="trailing" id="p8P-F3-k8t"/>
+                <constraint firstItem="UFx-BD-K9i" firstAttribute="top" secondItem="VVF-64-Ix3" secondAttribute="top" id="pLR-bE-fbk"/>
+                <constraint firstItem="0zB-ma-iQN" firstAttribute="centerY" secondItem="VVF-64-Ix3" secondAttribute="centerY" id="u7A-yT-14f"/>
+                <constraint firstAttribute="trailing" secondItem="nQt-LW-wuw" secondAttribute="trailing" constant="41" id="x9P-lf-mju"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="2gR-l3-Wrb"/>
-                    <exclude reference="d1L-vd-Piq"/>
-                    <exclude reference="xr0-fs-PQH"/>
-                </mask>
-            </variation>
             <connections>
                 <outlet property="emotionButton" destination="nQt-LW-wuw" id="rUm-PH-zxX"/>
                 <outlet property="inputTextView" destination="UFx-BD-K9i" id="hDI-3V-5Tt"/>
@@ -95,9 +87,9 @@
         </view>
     </objects>
     <resources>
+        <image name="sharemore_pic" width="59" height="59"/>
         <image name="tool_emotion_1" width="35" height="35"/>
         <image name="tool_emotion_2" width="35" height="35"/>
-        <image name="tool_share_1" width="35" height="35"/>
         <image name="tool_share_2" width="35" height="35"/>
         <image name="tool_voice_1" width="35" height="35"/>
         <image name="tool_voice_2" width="35" height="35"/>

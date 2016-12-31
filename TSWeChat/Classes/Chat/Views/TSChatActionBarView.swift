@@ -149,7 +149,9 @@ extension TSChatActionBarView {
     func showTyingKeyboard() {
         self.keyboardType = .text
         self.inputTextView.becomeFirstResponder()
-        self.inputTextView.isHidden = false
+        //TS-006
+//        self.inputTextView.isHidden = false
+        self.inputTextView.isHidden = true
         
         //设置接下来按钮的动作
         self.recordButton.isHidden = true
@@ -196,7 +198,9 @@ extension TSChatActionBarView {
     func showShareKeyboard() {
         self.keyboardType = .share
         self.inputTextView.resignFirstResponder()
-        self.inputTextView.isHidden = false
+        //TS-006
+//        self.inputTextView.isHidden = false
+        self.inputTextView.isHidden = true
         if let delegate = self.delegate {
             delegate.chatActionBarShowShareKeyboard()
         }

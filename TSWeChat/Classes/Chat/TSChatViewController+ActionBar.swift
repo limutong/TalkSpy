@@ -89,13 +89,17 @@ extension TSChatViewController {
         
         
         //分享按钮
+        //TS-006
         shareButton.rx.tap.subscribe {[weak self] _ in
             guard let strongSelf = self else { return }
             strongSelf.chatActionBarView.resetButtonUI()
             //根据不同的状态进行不同的键盘交互
+            print("$$ - share btn was clicked - $$")
             if shareButton.showTypingKeyboard {
+                print("$$$$$$$$$$$$$$$$$ - showTyingKeyboard - $$")
                 strongSelf.chatActionBarView.showTyingKeyboard()
             } else {
+                print("$$$$$$$$$$$$$$$$$ - showShareKeyboard - $$")
                 strongSelf.chatActionBarView.showShareKeyboard()
             }
             

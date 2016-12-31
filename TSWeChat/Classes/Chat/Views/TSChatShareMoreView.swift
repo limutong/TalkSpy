@@ -14,7 +14,7 @@ import Dollar
 
 private let kLeftRightPadding: CGFloat = 15.0
 private let kTopBottomPadding: CGFloat = 10.0
-private let kItemCountOfRow: CGFloat = 4
+private let kItemCountOfRow: CGFloat = 2
 
 class TSChatShareMoreView: UIView {
     @IBOutlet weak var pageControl: UIPageControl!
@@ -26,17 +26,17 @@ class TSChatShareMoreView: UIView {
     internal let disposeBag = DisposeBag()
 
     fileprivate let itemDataSouce: [(name: String, iconImage: UIImage)] = [
-        ("照片", TSAsset.Sharemore_pic.image),
-        ("相机", TSAsset.Sharemore_video.image),
-        ("小视频", TSAsset.Sharemore_sight.image),
-        ("视频聊天", TSAsset.Sharemore_videovoip.image),
-        ("红包", TSAsset.Sharemore_wallet.image),  //Where is the lucky money icon!  T.T
-        ("转账", TSAsset.SharemorePay.image),
-        ("位置", TSAsset.Sharemore_location.image),
-        ("收藏", TSAsset.Sharemore_myfav.image),
-        ("个人名片", TSAsset.Sharemore_friendcard.image),
-        ("语音输入", TSAsset.Sharemore_voiceinput.image),
-        ("卡券", TSAsset.Sharemore_wallet.image),
+        ("DS-001", TSAsset.Sharemore_voiceinput.image),
+        ("DS-002", TSAsset.Sharemore_voiceinput.image),
+        ("DS-003", TSAsset.Sharemore_voiceinput.image),
+//        ("视频聊天", TSAsset.Sharemore_videovoip.image),
+//        ("红包", TSAsset.Sharemore_wallet.image),  //Where is the lucky money icon!  T.T
+//        ("转账", TSAsset.SharemorePay.image),
+//        ("位置", TSAsset.Sharemore_location.image),
+//        ("收藏", TSAsset.Sharemore_myfav.image),
+//        ("个人名片", TSAsset.Sharemore_friendcard.image),
+//        ("语音输入", TSAsset.Sharemore_voiceinput.image),
+//        ("卡券", TSAsset.Sharemore_wallet.image),
     ]
     fileprivate var groupDataSouce = [[(name: String, iconImage: UIImage)]]()
     
@@ -99,17 +99,19 @@ class TSChatShareMoreView: UIView {
 // MARK: - @protocol UICollectionViewDelegate
 extension TSChatShareMoreView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let delegate = self.delegate else {
-            return
-        }
-
+//        guard let delegate = self.delegate else {
+//            return
+//        }
+        print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ - clicked : ",indexPath)
         let section = indexPath.section
         let row = indexPath.row
         if section == 0 {
             if row == 0 {
-                delegate.chatShareMoreViewPhotoTaped()
+                print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ - clicked : ",indexPath.row)
+//                delegate.chatShareMoreViewPhotoTaped()
             } else if row == 1 {
-                delegate.chatShareMoreViewCameraTaped()
+                print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ - clicked : ",indexPath.row)
+//                delegate.chatShareMoreViewCameraTaped()
             }
         }
     }

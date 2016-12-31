@@ -86,7 +86,12 @@ final class TSChatViewController: UIViewController {
         
         print(" >>>>>>>>>>>>>>>>>>>>> 3.4 >> chat hide chatActionBarView")
         //TS-005
-        self.chatActionBarView.isHidden = true
+//        self.chatActionBarView.isHidden = true
+//        self.view.bringSubview(toFront: self.chatTalkSpyBarView)
+        //TS-006 hide unused btns
+        self.chatActionBarView.voiceButton.isHidden = true
+        self.chatActionBarView.inputTextView.isHidden = true
+        self.chatActionBarView.emotionButton.isHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
