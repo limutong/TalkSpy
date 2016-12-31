@@ -24,6 +24,8 @@ final class TSChatViewController: UIViewController {
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     lazy var listTableView: UITableView = {
+        print(" >>>>>>>>>>>>>>>>>>>>> 1.0 >> chat details page : create listTableView")
+
         let listTableView = UITableView(frame: CGRect.zero, style: .plain)
         listTableView.dataSource = self
         listTableView.delegate = self
@@ -49,8 +51,10 @@ final class TSChatViewController: UIViewController {
     var isEndRefreshing: Bool = true            // 是否结束了下拉加载更多
     
     override func viewDidLoad() {
+        print(" >>>>>>>>>>>>>>>>>>>>> 2.0 >> chat viewDidLoad")
         super.viewDidLoad()
         self.title = self.messageModel!.nickname!
+        print(" >>>>>>>>>>>>>>>>>>>>> 2.1 >> chat title : ",self.title ?? "Empty Title!")
         self.view.backgroundColor = UIColor.viewBackgroundColor
         self.navigationController!.interactivePopGestureRecognizer!.isEnabled = true
 
@@ -64,8 +68,11 @@ final class TSChatViewController: UIViewController {
         self.listTableView.tableHeaderView = self.refreshView
         
         //初始化子 View，键盘控制，动作 bar
+        print(" >>>>>>>>>>>>>>>>>>>>> 3.0 >> chat setupSubviews")
         self.setupSubviews(self)
+        print(" >>>>>>>>>>>>>>>>>>>>> 3.1 >> chat keyboardControl")
         self.keyboardControl()
+        print(" >>>>>>>>>>>>>>>>>>>>> 3.2 >> chat setupActionBarButtonInterAction")
         self.setupActionBarButtonInterAction()
         
         //设置录音 delegate
@@ -74,8 +81,10 @@ final class TSChatViewController: UIViewController {
         AudioPlayInstance.delegate = self
         
         //获取第一屏的数据
+        print(" >>>>>>>>>>>>>>>>>>>>> 3.3 >> chat firstFetchMessageList")
         self.firstFetchMessageList()
         
+        print(" >>>>>>>>>>>>>>>>>>>>> 3.4 >> chat hide chatActionBarView")
         //TS-005
         self.chatActionBarView.isHidden = true
     }

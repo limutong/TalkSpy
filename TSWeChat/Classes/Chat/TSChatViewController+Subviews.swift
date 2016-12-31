@@ -16,9 +16,13 @@ extension TSChatViewController {
      创建聊天的各种子 view
      */
     func setupSubviews(_ delegate: UITextViewDelegate) {
+        print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 3.0.1 >> subview setupActionBar")
         self.setupActionBar(delegate)
+        print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 3.0.2 >> subview initListTableView")
         self.initListTableView()
+        print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 3.0.3 >> subview setupKeyboardInputView")
         self.setupKeyboardInputView()
+        print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 3.0.4 >> subview setupVoiceIndicatorView")
         self.setupVoiceIndicatorView()
     }
     
@@ -44,10 +48,19 @@ extension TSChatViewController {
      初始化操作栏
      */
     fileprivate func setupActionBar(_ delegate: UITextViewDelegate) {
+        print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 3.0.1.1 >> actionBar ts_viewFromNib")
         self.chatActionBarView = UIView.ts_viewFromNib(TSChatActionBarView.self)
         self.chatActionBarView.delegate = self
+        print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 3.0.1.2 >> talkSpyBar ts_viewFromNib")
+        self.chatTalkSpyBarView = UIView.ts_viewFromNib(TSChatTalkSpyBarView.self)
+        self.chatTalkSpyBarView.delegate = self
+        print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 3.0.1.3 >> actionBar addSubview ")
         self.chatActionBarView.inputTextView.delegate = delegate
         self.view.addSubview(self.chatActionBarView)
+        print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 3.0.1.4 >> talkSpyBar addSubview ")
+        //self.chatTalkSpyBarView.inputTextView.delegate = delegate
+        self.view.addSubview(self.chatTalkSpyBarView)
+        print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 3.0.1.4 >> actionBar makeConstraints ")
         self.chatActionBarView.snp.makeConstraints { [weak self] (make) -> Void in
             guard let strongSelf = self else { return }
             make.left.equalTo(strongSelf.view.snp.left)
@@ -55,19 +68,16 @@ extension TSChatViewController {
             strongSelf.actionBarPaddingBottomConstranit = make.bottom.equalTo(strongSelf.view.snp.bottom).constraint
             make.height.equalTo(kChatActionBarOriginalHeight)
         }
-        
-        //TS-005
-        self.chatTalkSpyBarView = UIView.ts_viewFromNib(TSChatTalkSpyBarView.self)
-        print("ts_viewFromNib DONE")
-        
-        /*self.chatTalkSpyBarView.snp.makeConstraints { [weak self] (make) -> Void in
+        print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 3.0.1.5 >> talkSpyBar makeConstraints ")
+        self.chatTalkSpyBarView.snp.makeConstraints { [weak self] (make) -> Void in
             guard let strongSelf = self else { return }
             make.left.equalTo(strongSelf.view.snp.left)
             make.right.equalTo(strongSelf.view.snp.right)
-//            strongSelf.actionBarPaddingBottomConstranit = make.bottom.equalTo(strongSelf.view.snp.bottom).constraint
-            make.height.equalTo(CGFloat(50))
-        }*/
-        print("constraints is DONE")
+            
+            //strongSelf.actionBarPaddingBottomConstranit = make.bottom.equalTo(strongSelf.view.snp.bottom).constraint
+            make.height.equalTo(kChatTalkSpyBarOriginalHeight)
+        }
+        print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 3.0.1.6 >> talkSpyBar Done ")
     }
     
     /**

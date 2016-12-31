@@ -8,6 +8,8 @@
 
 import UIKit
 
+let kChatTalkSpyBarOriginalHeight: CGFloat = 50      //ActionBar orginal height
+
 class TSChatTalkSpyBarView: UIView {
 
     @IBOutlet weak var DSbtn_1: UIButton!
