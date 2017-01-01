@@ -26,9 +26,9 @@ class TSChatShareMoreView: UIView {
     internal let disposeBag = DisposeBag()
 
     fileprivate let itemDataSouce: [(name: String, iconImage: UIImage)] = [
-        ("DS-001", TSAsset.Sharemore_voiceinput.image),
-        ("DS-002", TSAsset.Sharemore_voiceinput.image),
-        ("DS-003", TSAsset.Sharemore_voiceinput.image),
+        ("DS-001-xxxxxxxxxxxxxxxxxxxxxxxx", TSAsset.Sharemore_voiceinput.image),
+        ("DS-002-yyyyyyyyyyyyyyyyyyyyyyyy", TSAsset.Sharemore_voiceinput.image),
+        ("DS-003 zzzzzzzzzzzzzzzzzzzzzzzz", TSAsset.Sharemore_voiceinput.image),
 //        ("视频聊天", TSAsset.Sharemore_videovoip.image),
 //        ("红包", TSAsset.Sharemore_wallet.image),  //Where is the lucky money icon!  T.T
 //        ("转账", TSAsset.SharemorePay.image),
@@ -75,6 +75,11 @@ class TSChatShareMoreView: UIView {
         let itemSizeHeight = (self.collectionViewHeightConstraint.constant - kTopBottomPadding*2)/2
         layout.itemSize = CGSize(width: itemSizeWidth, height: itemSizeHeight)
         
+        print("")
+        print("layout.itemSize")
+        print("------------ ",layout.itemSize)
+        print("")
+        
         self.listCollectionView.collectionViewLayout = layout
         self.listCollectionView.register(TSChatShareMoreCollectionViewCell.ts_Nib(), forCellWithReuseIdentifier: TSChatShareMoreCollectionViewCell.identifier)
         self.listCollectionView.showsHorizontalScrollIndicator = false
@@ -101,9 +106,9 @@ class TSChatShareMoreView: UIView {
 //TS-006 click DS details selections
 extension TSChatShareMoreView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        guard let delegate = self.delegate else {
-//            return
-//        }
+        guard let delegate = self.delegate else {
+            return
+        }
         
         print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ - clicked : ",indexPath)
         let section = indexPath.section
@@ -117,6 +122,9 @@ extension TSChatShareMoreView: UICollectionViewDelegate {
 //                delegate.chatShareMoreViewCameraTaped()
             }
         }
+        //TS-006 close the details and send out message
+        delegate.chatShareMoreViewMinTab_showShareKeyboard()
+        
     }
 }
 
@@ -135,13 +143,17 @@ extension TSChatShareMoreView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        //TS-006 Detail selection - Init
+        print("*************** Init collectionView cellForItemAt",indexPath)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TSChatShareMoreCollectionViewCell.identifier, for: indexPath) as! TSChatShareMoreCollectionViewCell
         guard let subArray = self.groupDataSouce.get(index: indexPath.section) else {
             return TSChatShareMoreCollectionViewCell()
         }
         if let item = subArray.get(index: indexPath.row) {
-            cell.itemButton.setImage(item.iconImage, for: .normal)
-            cell.itemLabel.text = item.name
+//            cell.itemButton.setImage(item.iconImage, for: .normal)
+            cell.itemButton.ts_setBackgroundColor(.green, forState: .normal)
+//            cell.itemLabel.text = item.name
+            cell.itemButton.setTitle(item.name, for: .normal)
         }
         return cell
     }
@@ -172,6 +184,11 @@ protocol ChatShareMoreViewDelegate: class {
      选择相机
      */
     func chatShareMoreViewCameraTaped()
+    
+    /**
+     TS-006 close the details and send out message
+     */
+    func chatShareMoreViewMinTab_showShareKeyboard()
 }
 
 

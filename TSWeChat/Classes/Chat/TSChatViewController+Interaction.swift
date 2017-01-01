@@ -35,6 +35,12 @@ extension TSChatViewController: ChatShareMoreViewDelegate {
         })
     }
     
+    //TS-006  close share tab
+    func chatShareMoreViewMinTab_showShareKeyboard() {
+        self.chatActionBarView.showTyingKeyboard()
+        self.controlExpandableInputView(showExpandable: false)
+    }
+    
     //选择打开相机
     func chatShareMoreViewCameraTaped() {
         let authStatus: AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)

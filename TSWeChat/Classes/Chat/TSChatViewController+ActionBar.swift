@@ -95,12 +95,12 @@ extension TSChatViewController {
             strongSelf.chatActionBarView.resetButtonUI()
             //根据不同的状态进行不同的键盘交互
             print("$$ - share btn was clicked - $$")
-            UIView.animate(withDuration: 20.0, animations:{
+            UIView.animate(withDuration: 1.0, animations:{
                 shareButton.ts_setBackgroundColor(UIColor.darkGray, forState: .normal)
             })
-            UIView.animate(withDuration: 20.0, animations:{
-                shareButton.ts_setBackgroundColor(UIColor.green, forState: .normal)
-            })
+//            UIView.animate(withDuration: 20.0, animations:{
+//                shareButton.ts_setBackgroundColor(UIColor.green, forState: .normal)
+//            })
             //shareButton.isSelected = false
             if shareButton.showTypingKeyboard {
                 print("$$$$$$$$$$$$$$$$$ - showTyingKeyboard - $$")
