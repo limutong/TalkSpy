@@ -17,6 +17,10 @@ private let kTopBottomPadding: CGFloat = 10.0
 private let kItemCountOfRow: CGFloat = 2
 
 class TSChatShareMoreView: UIView {
+    
+    //TS-006
+    var calculatedShareItemSize: CGSize!
+    
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var listCollectionView: UICollectionView! {didSet {
         listCollectionView.scrollsToTop = false
@@ -78,7 +82,13 @@ class TSChatShareMoreView: UIView {
         print("")
         print("layout.itemSize")
         print("------------ ",layout.itemSize)
+        self.calculatedShareItemSize = layout.itemSize
+        print("calculatedShareItemSize width")
+        print("------------ ",calculatedShareItemSize.width)
         print("")
+        
+//        //TS-006 resize buttn size
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TSChatShareMoreCollectionViewCell.identifier, for: indexPath) as! TSChatShareMoreCollectionViewCell
         
         self.listCollectionView.collectionViewLayout = layout
         self.listCollectionView.register(TSChatShareMoreCollectionViewCell.ts_Nib(), forCellWithReuseIdentifier: TSChatShareMoreCollectionViewCell.identifier)
@@ -154,6 +164,9 @@ extension TSChatShareMoreView: UICollectionViewDataSource {
             cell.itemButton.ts_setBackgroundColor(.green, forState: .normal)
 //            cell.itemLabel.text = item.name
             cell.itemButton.setTitle(item.name, for: .normal)
+            //TS-006 make share items fill full line, need to remove constraints from xib
+            cell.itemButton.ts_width = self.calculatedShareItemSize.width
+            cell.itemButton.ts_height = self.calculatedShareItemSize.height
         }
         return cell
     }
