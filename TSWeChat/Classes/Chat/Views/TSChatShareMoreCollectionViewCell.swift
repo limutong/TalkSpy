@@ -11,6 +11,9 @@ import UIKit
 class TSChatShareMoreCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var itemButton: UIButton!
     @IBOutlet weak var itemLabel: UILabel!
+    //TS-006 outlet for width
+    @IBOutlet weak var shareItemWidth: NSLayoutConstraint!
+    @IBOutlet weak var shareItemHeight: NSLayoutConstraint!
     override var isHighlighted: Bool { didSet {
         if self.isHighlighted {
             self.itemButton.setBackgroundImage(TSAsset.Sharemore_other_HL.image, for: .highlighted)

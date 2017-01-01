@@ -18,8 +18,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="65" height="93"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W52-QU-qCH">
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="center" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="W52-QU-qCH">
                         <rect key="frame" x="3" y="6" width="59" height="59"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="59" id="82G-Gr-9Ym"/>
+                            <constraint firstAttribute="height" constant="59" id="lzO-a9-LRo"/>
+                        </constraints>
                         <state key="normal" backgroundImage="sharemore_other"/>
                         <state key="highlighted" backgroundImage="sharemore_other_HL"/>
                     </button>
@@ -52,6 +56,8 @@
             <connections>
                 <outlet property="itemButton" destination="W52-QU-qCH" id="hH2-F9-n33"/>
                 <outlet property="itemLabel" destination="Ijh-bH-bJK" id="DPc-W4-hjV"/>
+                <outlet property="shareItemHeight" destination="lzO-a9-LRo" id="mzy-VX-AlO"/>
+                <outlet property="shareItemWidth" destination="82G-Gr-9Ym" id="d3Y-Kc-8aN"/>
             </connections>
             <point key="canvasLocation" x="860.5" y="488.5"/>
         </collectionViewCell>

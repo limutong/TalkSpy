@@ -30,9 +30,9 @@ class TSChatShareMoreView: UIView {
     internal let disposeBag = DisposeBag()
 
     fileprivate let itemDataSouce: [(name: String, iconImage: UIImage)] = [
-        ("DS-001-xxxxxxxxxxxxxxxxxxxxxxxx", TSAsset.Sharemore_voiceinput.image),
-        ("DS-002-yyyyyyyyyyyyyyyyyyyyyyyy", TSAsset.Sharemore_voiceinput.image),
-        ("DS-003 zzzzzzzzzzzzzzzzzzzzzzzz", TSAsset.Sharemore_voiceinput.image),
+        ("很困 ...", TSAsset.Sharemore_voiceinput.image),
+        ("四川豆花还是海底捞？", TSAsset.Sharemore_voiceinput.image),
+        ("Test Wrap Auto DS-003 ", TSAsset.Sharemore_voiceinput.image),
 //        ("视频聊天", TSAsset.Sharemore_videovoip.image),
 //        ("红包", TSAsset.Sharemore_wallet.image),  //Where is the lucky money icon!  T.T
 //        ("转账", TSAsset.SharemorePay.image),
@@ -165,8 +165,12 @@ extension TSChatShareMoreView: UICollectionViewDataSource {
 //            cell.itemLabel.text = item.name
             cell.itemButton.setTitle(item.name, for: .normal)
             //TS-006 make share items fill full line, need to remove constraints from xib
-            cell.itemButton.ts_width = self.calculatedShareItemSize.width
-            cell.itemButton.ts_height = self.calculatedShareItemSize.height
+//            cell.itemButton.ts_width = self.calculatedShareItemSize.width
+            cell.shareItemWidth.constant = self.calculatedShareItemSize.width
+            print("********************** Init with width ",cell.itemButton.ts_width)
+//            cell.itemButton.ts_height = self.calculatedShareItemSize.height
+            cell.shareItemHeight.constant = self.calculatedShareItemSize.height
+
         }
         return cell
     }
