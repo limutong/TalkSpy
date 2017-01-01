@@ -4,7 +4,7 @@
 //  TSWeChat
 //
 //  Created by Hilen on 12/16/15.
-//  Copyright © 2015 Hilen. All rights reserved.
+//  Modified by MT on 17 Jan 01
 //
 
 import UIKit
@@ -63,8 +63,12 @@ class TSChatActionBarView: UIView {
         emotionButton.showTypingKeyboard = false
         }}
     
+    //TS-006 Init share btn
     @IBOutlet weak var shareButton: TSChatButton! { didSet{
         shareButton.showTypingKeyboard = false
+        print(">>>> TSChatActionBarView shareBtn didSet")
+        shareButton.ts_setBackgroundColor(UIColor.green, forState: .normal)
+
         }}
     
     @IBOutlet weak var recordButton: UIButton! { didSet{

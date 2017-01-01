@@ -3,7 +3,7 @@
 //  TSWeChat
 //
 //  Created by Hilen on 12/24/15.
-//  Copyright © 2015 Hilen. All rights reserved.
+//  Modified by MT on 17 Jan 01
 //
 
 import UIKit
@@ -60,6 +60,7 @@ class TSChatShareMoreView: UIView {
     }
     
     override func awakeFromNib() {
+        print(">>> TSChatShareMoveView awakeFromNib")
         let layout = TSFullyHorizontalFlowLayout()
         layout.minimumLineSpacing = 8
         layout.minimumInteritemSpacing = 0
@@ -97,11 +98,13 @@ class TSChatShareMoreView: UIView {
 }
 
 // MARK: - @protocol UICollectionViewDelegate
+//TS-006 click DS details selections
 extension TSChatShareMoreView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        guard let delegate = self.delegate else {
 //            return
 //        }
+        
         print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ - clicked : ",indexPath)
         let section = indexPath.section
         let row = indexPath.row
