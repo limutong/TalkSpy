@@ -113,7 +113,7 @@ class TSChatShareMoreView: UIView {
 }
 
 // MARK: - @protocol UICollectionViewDelegate
-//TS-006 click DS details selections
+//TS-006 $$ Selections was clicked $$
 extension TSChatShareMoreView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let delegate = self.delegate else {
@@ -132,8 +132,24 @@ extension TSChatShareMoreView: UICollectionViewDelegate {
 //                delegate.chatShareMoreViewCameraTaped()
             }
         }
-        //TS-006 close the details and send out message
-        delegate.chatShareMoreViewMinTab_showShareKeyboard()
+        //TS-006 Get the information from data source
+        
+        guard let subArray = self.groupDataSouce.get(index: indexPath.section) else {
+            print("DQ issue : ",indexPath, "no data found in datasource")
+            return
+        }
+        
+        if let item = subArray.get(index: indexPath.row) {
+            print("======> Sending text ",item.name)
+            //TS-006 close the details and send out message
+            delegate.chatShareMoreViewMinTab_showShareKeyboard( item.name)
+        }else{
+            print("DQ issue : ",indexPath.row, "no data found in indexPath.row")
+        }
+        
+        
+
+        
         
     }
 }
@@ -205,7 +221,7 @@ protocol ChatShareMoreViewDelegate: class {
     /**
      TS-006 close the details and send out message
      */
-    func chatShareMoreViewMinTab_showShareKeyboard()
+    func chatShareMoreViewMinTab_showShareKeyboard(_ msg:String)
 }
 
 

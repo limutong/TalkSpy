@@ -36,9 +36,12 @@ extension TSChatViewController: ChatShareMoreViewDelegate {
     }
     
     //TS-006  close share tab
-    func chatShareMoreViewMinTab_showShareKeyboard() {
+    func chatShareMoreViewMinTab_showShareKeyboard(_ msg:String) {
+        print("=================> Sending msg ",msg)
         self.chatActionBarView.showTyingKeyboard()
         self.controlExpandableInputView(showExpandable: false)
+        //Send out Text
+        self.chatSendTalkSpySelection( msg )
     }
     
     //选择打开相机

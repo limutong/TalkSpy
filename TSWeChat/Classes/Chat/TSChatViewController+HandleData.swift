@@ -38,6 +38,33 @@ extension TSChatViewController {
             strongSelf.textViewDidChange(strongSelf.chatActionBarView.inputTextView)
         })
     }
+    
+    //TS-006 Send msg
+    func chatSendTalkSpySelection(_ msg:String) {
+        dispatch_async_safely_to_main_queue({[weak self] in
+            guard let strongSelf = self else { return }
+            var inputMsg = msg
+            guard inputMsg.ts_length < 1000 else {
+                TSProgressHUD.ts_showWarningWithStatus("超出字数限制")
+                return
+            }
+            
+            let text = inputMsg.trimmingCharacters(in: CharacterSet.whitespaces)
+            if text.length == 0 {
+                TSProgressHUD.ts_showWarningWithStatus("不能发送空白消息")
+                return
+            }
+            
+            let string = inputMsg
+            let model = ChatModel(text: string)
+            strongSelf.itemDataSouce.append(model)
+            let insertIndexPath = IndexPath(row: strongSelf.itemDataSouce.count - 1, section: 0)
+            strongSelf.listTableView.insertRowsAtBottom([insertIndexPath])
+            inputMsg = "" //发送完毕后清空
+            
+            strongSelf.textViewDidChange(strongSelf.chatActionBarView.inputTextView)
+        })
+    }
 
     /**
      发送声音
