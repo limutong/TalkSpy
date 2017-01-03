@@ -13,8 +13,11 @@ import RxBlocking
 import Dollar
 
 private let kLeftRightPadding: CGFloat = 15.0
-private let kTopBottomPadding: CGFloat = 10.0
-private let kItemCountOfRow: CGFloat = 2
+private let kTopBottomPadding: CGFloat = 5.0
+private let kItemCountOfRow: CGFloat = 1
+
+private let totalNumOfOptions: CGFloat = 3
+
 
 class TSChatShareMoreView: UIView {
     
@@ -76,7 +79,11 @@ class TSChatShareMoreView: UIView {
         )
         //Calculate the UICollectionViewCell size
         let itemSizeWidth = (UIScreen.ts_width - kLeftRightPadding*2 - layout.minimumLineSpacing*(kItemCountOfRow - 1)) / kItemCountOfRow
-        let itemSizeHeight = (self.collectionViewHeightConstraint.constant - kTopBottomPadding*2)/2
+        
+        //Calculate how many row we need:
+        let numOfRow = ceil(totalNumOfOptions/kItemCountOfRow)
+        
+        let itemSizeHeight = (self.collectionViewHeightConstraint.constant - kTopBottomPadding*2)/numOfRow
         layout.itemSize = CGSize(width: itemSizeWidth, height: itemSizeHeight)
         
         print("")
@@ -100,7 +107,8 @@ class TSChatShareMoreView: UIView {
         So I cut the itemDataSouce into 2 arrays. And the UICollectionView will has 2 sections.
         And then set the minimumLineSpacing and sectionInset of the flowLayout. The UI will be perfect like WeChat.
         */
-        self.groupDataSouce = $.chunk(self.itemDataSouce, size: Int(kItemCountOfRow)*2)
+        self.groupDataSouce = $.chunk(self.itemDataSouce,
+                                      size: Int(kItemCountOfRow)*Int(totalNumOfOptions))
         self.pageControl.numberOfPages = self.groupDataSouce.count
     }
     
