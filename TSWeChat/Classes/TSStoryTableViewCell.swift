@@ -30,6 +30,40 @@ class TSStoryTableViewCell: UITableViewCell {
         attributed.addAttribute(NSBackgroundColorAttributeName, value: UIColor.yellow, range: range)
         
         self.cellTextView.attributedText = attributed
+        
+        //add cover button
+            //the position
+        let begin = self.cellTextView.beginningOfDocument
+        let start = self.cellTextView.position(from: begin, offset: range.location)
+        let end = self.cellTextView.position(from: start!, offset: range.length)
+        let uiTextRange = self.cellTextView.textRange(from: start!, to: end!)
+        let rect = self.cellTextView.firstRect(for: uiTextRange!)
+        print("GGGGGGet the rect ",rect)
+            //the position
+        let coverBtn = UIButton(type: .custom)
+        coverBtn.setTitle("sit", for: .normal)
+        coverBtn.setTitleColor(.purple, for: .normal)
+        coverBtn.ts_setBackgroundColor(.yellow, forState: .normal)
+        coverBtn.ts_setBackgroundColor(.darkGray, forState: .highlighted)
+        coverBtn.layer.cornerRadius = 3.0
+        
+        coverBtn.layer.borderWidth = 2.0
+        coverBtn.layer.borderColor = UIColor.clear.cgColor
+        
+        coverBtn.layer.shadowColor = UIColor.darkGray.cgColor
+        coverBtn.layer.shadowOpacity = 1.0
+        coverBtn.layer.shadowRadius = 1.0
+        coverBtn.layer.shadowOffset = CGSize.init(width: 0, height: 3)
+        coverBtn.frame = CGRect(x: rect.minX, y: rect.minY, width: 20, height: 15)
+
+        
+        coverBtn.alpha = 0
+        self.cellTextView.addSubview(coverBtn)
+        
+        UIView.animate(withDuration: 2, delay: 0.7, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+            coverBtn.alpha = 1
+        }, completion: nil)
+        self.cellTextView.addSubview(coverBtn)
  
     }
 
