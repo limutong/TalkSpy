@@ -14,6 +14,7 @@
 		6E24FE671E0A3ED200869AF4 /* TSStoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E24FE651E0A3ED200869AF4 /* TSStoryTableViewCell.xib */; };
 		6E72237F1E12659200A656F8 /* TSChatTalkSpyBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E72237E1E12659200A656F8 /* TSChatTalkSpyBarView.swift */; };
 		6E7223811E1265DB00A656F8 /* TSChatTalkSpyBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7223801E1265DB00A656F8 /* TSChatTalkSpyBarView.xib */; };
+		6EE117121E1D43A9004BE171 /* ReadMe-DevList in Resources */ = {isa = PBXBuildFile; fileRef = 6EE117111E1D43A9004BE171 /* ReadMe-DevList */; };
 		AE040A9F1C990B4A003A764D /* TSLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE040A9E1C990B4A003A764D /* TSLocationManager.swift */; };
 		AE3CBC551C854B90008BA4AC /* TSChatDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3CBC541C854B90008BA4AC /* TSChatDataManager.swift */; };
 		AE3CBC5A1C858C3F008BA4AC /* TSChatViewController+TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3CBC591C858C3F008BA4AC /* TSChatViewController+TestData.swift */; };
@@ -162,6 +163,7 @@
 		6E24FE651E0A3ED200869AF4 /* TSStoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSStoryTableViewCell.xib; sourceTree = "<group>"; };
 		6E72237E1E12659200A656F8 /* TSChatTalkSpyBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSChatTalkSpyBarView.swift; sourceTree = "<group>"; };
 		6E7223801E1265DB00A656F8 /* TSChatTalkSpyBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSChatTalkSpyBarView.xib; sourceTree = "<group>"; };
+		6EE117111E1D43A9004BE171 /* ReadMe-DevList */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ReadMe-DevList"; sourceTree = "<group>"; };
 		AE040A9E1C990B4A003A764D /* TSLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSLocationManager.swift; sourceTree = "<group>"; };
 		AE3CBC541C854B90008BA4AC /* TSChatDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSChatDataManager.swift; sourceTree = "<group>"; };
 		AE3CBC591C858C3F008BA4AC /* TSChatViewController+TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TSChatViewController+TestData.swift"; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 		AE92B5D81C3FF73000968A3A = {
 			isa = PBXGroup;
 			children = (
+				6EE117111E1D43A9004BE171 /* ReadMe-DevList */,
 				AE92B5E31C3FF73000968A3A /* TSWeChat */,
 				AE92B5F81C3FF73000968A3A /* TSWeChatTests */,
 				AE92B5E21C3FF73000968A3A /* Products */,
@@ -828,6 +831,7 @@
 				AEE69BAB1C81B58600C69224 /* TSChatVoiceCell.xib in Resources */,
 				AEE69BD11C81B58600C69224 /* TSChatShareMoreView.xib in Resources */,
 				AE69C7601C8DDEA600D929CD /* beep.wav in Resources */,
+				6EE117121E1D43A9004BE171 /* ReadMe-DevList in Resources */,
 				AEBEE5AA1C87345700956B0C /* message.json in Resources */,
 				AE87428A1C7B0D7D003A435C /* Kenny.jpg in Resources */,
 				AEE69BD41C81B58600C69224 /* TSChatVoiceIndicatorView.xib in Resources */,

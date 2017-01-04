@@ -90,10 +90,13 @@ class TSStoryViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //TS-007 Click Think Btn
     func btnTouched(){
         print("ttttttttttttttttttt")
         print("ttttttttttttttttttt")
         print("ttttttttttttttttttt")
+        
+        // -------- 2. Update Energy --------
         switch self.energy {
         case 3:
             print("3")
