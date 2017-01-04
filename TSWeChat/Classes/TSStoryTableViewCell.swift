@@ -16,6 +16,7 @@ class TSStoryTableViewCell: UITableViewCell {
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var thinkBtn: UIButton!
     
+    //TS-007 Click think btn [action in cell]
     @IBAction func think(_ sender: UIButton) {
 
         //highlight self.cellTextView
